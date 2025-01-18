@@ -1,2 +1,2 @@
 # Total Project
-Includes all the required final project codes including Visio diagram
+Include the changes I've made for the book store project
