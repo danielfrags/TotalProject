@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-Book* head = NULL; // ψωιξδ ξχεωψϊ ωμ ρτψιν
+Book* head = NULL; // Χ¨Χ©Χ™ΧΧ” ΧΧ§Χ•Χ©Χ¨Χª Χ©Χ Χ΅Χ¤Χ¨Χ™Χ
 
 void add_book() {
     Book* new_book = (Book*)malloc(sizeof(Book));
@@ -44,7 +44,7 @@ void add_book() {
             printf("Invalid price! Enter a valid number.\n");
         }
     } while (!isValidNumber(input));
-    new_book->price = atof(input);//atof ξξιψ ξηψεζϊ μξρτψ
+    new_book->price = atof(input);//atof ΧΧΧ™Χ¨ ΧΧ—Χ¨Χ•Χ–Χª ΧΧΧ΅Χ¤Χ¨
 
     printf("Is it Topsaler (1 for Yes, 0 for No): ");
     scanf("%d", (int*)&new_book->topsale);
@@ -66,13 +66,13 @@ void add_book() {
     new_book->next = head;
     head = new_book;
 
-    sort_books(); // ξιεο δρτψιν μΰηψ δερτδ
+    sort_books(); // ΧΧ™Χ•Χ Χ”Χ΅Χ¤Χ¨Χ™Χ ΧΧΧ—Χ¨ Χ”Χ•Χ΅Χ¤Χ”
 }
 
 
 
 void display_books() {
-    sort_books();  // ξιεο δρτψιν μτπι δδφβδ
+    sort_books();  // ΧΧ™Χ•Χ Χ”Χ΅Χ¤Χ¨Χ™Χ ΧΧ¤Χ Χ™ Χ”Χ”Χ¦Χ’Χ”
     Book* temp = head;
     if (!temp) {
         printf("No books available.\n");
@@ -88,7 +88,7 @@ void display_books() {
 }
 
 void sort_books() {
-    if (!head || !head->next) return; // ΰν δψωιξδ ψιχδ ΰε ωιω ψχ ρτψ ΰηγ, ΰιο φεψκ αξιεο
+    if (!head || !head->next) return; // ΧΧ Χ”Χ¨Χ©Χ™ΧΧ” Χ¨Χ™Χ§Χ” ΧΧ• Χ©Χ™Χ© Χ¨Χ§ Χ΅Χ¤Χ¨ ΧΧ—Χ“, ΧΧ™Χ Χ¦Χ•Χ¨Χ Χ‘ΧΧ™Χ•Χ
 
     bool swapped;
     Book* ptr1, * prev, * temp_head = NULL;
@@ -99,7 +99,7 @@ void sort_books() {
         prev = NULL;
 
         while (ptr1->next != temp_head) {
-            // ΰν δξρτψ δχθμεβι βγεμ ιεϊψ ξζδ ωμ δρτψ δαΰ, ξημιτιν αιπιδν
+            // ΧΧ Χ”ΧΧ΅Χ¤Χ¨ Χ”Χ§ΧΧΧ•Χ’Χ™ Χ’Χ“Χ•Χ Χ™Χ•ΧªΧ¨ ΧΧ–Χ” Χ©Χ Χ”Χ΅Χ¤Χ¨ Χ”Χ‘Χ, ΧΧ—ΧΧ™Χ¤Χ™Χ Χ‘Χ™Χ Χ™Χ”Χ
             if (ptr1->catalog_number > ptr1->next->catalog_number) {
                 Book* temp = ptr1->next;
                 ptr1->next = temp->next;
@@ -109,7 +109,7 @@ void sort_books() {
                     prev->next = temp;
                 }
                 else {
-                    head = temp; // ξςγλπιν ΰϊ ψΰω δψωιξδ ΰν φψικ
+                    head = temp; // ΧΧΆΧ“Χ›Χ Χ™Χ ΧΧª Χ¨ΧΧ© Χ”Χ¨Χ©Χ™ΧΧ” ΧΧ Χ¦Χ¨Χ™Χ
                 }
 
                 swapped = true;
@@ -120,13 +120,13 @@ void sort_books() {
                 ptr1 = ptr1->next;
             }
         }
-        temp_head = ptr1; // αλμ ΰιθψφιδ δΰμξπθ δΰηψεο δεΰ δξρεγψ αιεϊψ
+        temp_head = ptr1; // Χ‘Χ›Χ ΧΧ™ΧΧ¨Χ¦Χ™Χ” Χ”ΧΧΧΧ Χ Χ”ΧΧ—Χ¨Χ•Χ Χ”Χ•Χ Χ”ΧΧ΅Χ•Χ“Χ¨ Χ‘Χ™Χ•ΧªΧ¨
     } while (swapped);
 }
 
 
 void save_books() {
-    sort_books(); // ξιεο δψωιξδ μτπι δωξιψδ
+    sort_books(); // ΧΧ™Χ•Χ Χ”Χ¨Χ©Χ™ΧΧ” ΧΧ¤Χ Χ™ Χ”Χ©ΧΧ™Χ¨Χ”
 
     FILE* file = fopen("books.bin", "wb");
     if (!file) {
@@ -173,19 +173,19 @@ void edit_or_remove_book() {
     Book* temp = head;
     Book* prev = NULL;
 
-    // ηιτεω δρτψ αψωιξδ
+    // Χ—Χ™Χ¤Χ•Χ© Χ”Χ΅Χ¤Χ¨ Χ‘Χ¨Χ©Χ™ΧΧ”
     while (temp != NULL && temp->catalog_number != catalog_number) {
         prev = temp;
         temp = temp->next;
     }
 
-    // ΰν δρτψ μΰ πξφΰ
+    // ΧΧ Χ”Χ΅Χ¤Χ¨ ΧΧ Χ ΧΧ¦Χ
     if (temp == NULL) {
         printf("Book with catalog number %d not found.\n", catalog_number);
         return;
     }
 
-    // ϊτψιθ ςψιλδ ΰε ξηιχδ
+    // ΧªΧ¤Χ¨Χ™Χ ΧΆΧ¨Χ™Χ›Χ” ΧΧ• ΧΧ—Χ™Χ§Χ”
     printf("\n1. Edit Title\n2. Edit Author\n3. Edit Price\n4. Edit Hardcover\n5. Edit Publication Date\n6. Edit Number of stock\n7. Remove Book\n8. Cancel\nEnter your choice: ");
     scanf("%d", &choice);
 
@@ -215,7 +215,7 @@ void edit_or_remove_book() {
         scanf("%d", &temp->stock);
         break;
     case 7:
-        // δρψϊ δρτψ ξδψωιξδ
+        // Χ”Χ΅Χ¨Χª Χ”Χ΅Χ¤Χ¨ ΧΧ”Χ¨Χ©Χ™ΧΧ”
         if (prev == NULL) {
             head = temp->next;
         }
@@ -233,29 +233,125 @@ void edit_or_remove_book() {
     }
 }
 
-// τεπχφιδ μαγιχδ ΰν δων ϊχιο (ξλιμ ψχ ΰεϊιεϊ εψεεηιν)
+// Χ¤Χ•Χ Χ§Χ¦Χ™Χ” ΧΧ‘Χ“Χ™Χ§Χ” ΧΧ Χ”Χ©Χ ΧªΧ§Χ™Χ (ΧΧ›Χ™Χ Χ¨Χ§ ΧΧ•ΧªΧ™Χ•Χª Χ•Χ¨Χ•Χ•Χ—Χ™Χ)
 int isValidName(const char* name) {
     for (int i = 0; name[i] != '\0'; i++) {
         if ((name[i] < 'A' || name[i] > 'Z') && (name[i] < 'a' || name[i] > 'z') && name[i] != ' ') {
-            return 0; // ων μΰ ϊχιο
+            return 0; // Χ©Χ ΧΧ ΧªΧ§Χ™Χ
         }
     }
-    return 1; // ων ϊχιο
+    return 1; // Χ©Χ ΧªΧ§Χ™Χ
 }
 
-// τεπχφιδ μΰιξεϊ ϊΰψικ
+// Χ¤Χ•Χ Χ§Χ¦Χ™Χ” ΧΧΧ™ΧΧ•Χª ΧªΧΧ¨Χ™Χ
 int isValidDate(const char* date) {
     int day, month, year;
     return sscanf(date, "%d/%d/%d", &day, &month, &year) == 3 &&
         day >= 1 && day <= 31 && month >= 1 && month <= 12 && year >= 1900;
 }
 
-// τεπχφιδ μαγιχδ ΰν χμθ ξλιμ ψχ ξρτψιν
+// Χ¤Χ•Χ Χ§Χ¦Χ™Χ” ΧΧ‘Χ“Χ™Χ§Χ” ΧΧ Χ§ΧΧ ΧΧ›Χ™Χ Χ¨Χ§ ΧΧ΅Χ¤Χ¨Χ™Χ
 int isValidNumber(const char* str) {
     for (int i = 0; str[i] != '\0'; i++) {
-        if (!isdigit(str[i]) && str[i] != '.') { // ϊεξκ βν απχεγδ ςωψεπιϊ
+        if (!isdigit(str[i]) && str[i] != '.') { // ΧªΧ•ΧΧ Χ’Χ Χ‘Χ Χ§Χ•Χ“Χ” ΧΆΧ©Χ¨Χ•Χ Χ™Χª
             return 0;
         }
     }
     return 1;
+}
+
+void search_by_title_or_author(const char* query) {
+    Book* temp = head;
+    int found = 0;
+    while (temp) {
+        if (strstr(temp->title, query) || strstr(temp->author, query)) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: %s\nPublication Date: %s\nBooks in stock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price,
+                temp->topsale ? "Yes" : "No", temp->publication_date, temp->stock);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    if (!found) {
+        printf("No books found matching '%s'.\n", query);
+    }
+}
+
+void search_by_min_price(float min_price) {
+    Book* temp = head;
+    int found = 0;
+    while (temp) {
+        if (temp->price >= min_price) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: %s\nPublication Date: %s\nStock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price,
+                temp->topsale ? "Yes" : "No", temp->publication_date, temp->stock);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    if (!found) {
+        printf("No books found with minimum price of: %.2f.\n", min_price);
+    }
+}
+
+void search_by_max_price(float max_price) {
+    Book* temp = head;
+    int found = 0;
+    while (temp) {
+        if (temp->price <= max_price) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: %s\nPublication Date: %s\nStock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price,
+                temp->topsale ? "Yes" : "No", temp->publication_date, temp->stock);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    if (!found) {
+        printf("No books found with maximum price of: %.2f.\n", max_price);
+    }
+}
+
+void search_by_bestseller() {
+    Book* temp = head;
+    int found = 0;
+    while (temp) {
+        if (temp->topsale) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: Yes\nPublication Date: %s\nBooks in stock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price, temp->publication_date, temp->stock);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    if (!found) {
+        printf("No bestseller books found.\n");
+    }
+}
+
+void search_by_date(const char* date) {
+    Book* temp = head;
+    int found = 0;
+    while (temp) {
+        if (strcmp(temp->publication_date, date) == 0) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: %s\nPublication Date: %s\nBooks in stock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price,
+                temp->topsale ? "Yes" : "No", temp->publication_date, temp->stock);
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    if (!found) {
+        printf("No books found with publication date %s.\n", date);
+    }
+}
+
+void search_by_stock() {
+    Book* temp = head;
+    while (temp) {
+        if (temp->stock > 0) {
+            printf("\nCatalog Number: %d\nTitle: %s\nAuthor: %s\nPrice: %.2f\nTopsaler: %s\nPublication Date: %s\nStock: %d\n",
+                temp->catalog_number, temp->title, temp->author, temp->price,
+                temp->topsale ? "Yes" : "No", temp->publication_date, temp->stock);
+        }
+        temp = temp->next;
+    }
 }
